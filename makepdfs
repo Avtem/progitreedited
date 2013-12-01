@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# dir where command is located
+baseDir=`dirname $0`
+
+# dir to put output in
+outputDir=${baseDir}/pdf
+
+# directories to ignore
+exclude=('figures' 'figures-dia' 'figures-source' 'latex' 'makepdfs' 'pdf' 'README')
+
+# directories that contain content
+dirContent=`ls $baseDir`
+argString=""
+
+  echo $i;
+
+# go through all the possible directories
+for dir in $dirContent; do
+
+# if still a dir to check
+	if [ -n $dir ]; then
+		
+# presume that this is a selected language
+		isLang=1
+
+# go through the list of dirs to ignore
+		for i in ${exclude[@]}; do
+# if the directory should be ignored, unset flag
+			if [ $i == $dir ]; then
+				isLang=0
+			fi
+		done
+
+# if this is a directory that should not be ignored
+		if [ $isLang -eq 1 ]; then
+# if no argument was given on the command line
+			if [ "$1" = "" ]; then
+# add the directory to the argument list
+				argString="${argString} ${dir}"
+			else
+				for i in ${@}; do
+					if [ $i = $dir ]; then
+						argString="${argString} ${dir}"
+					fi
+				done
+			fi
+		fi
+	fi
+done
+
+echo "Will generate pdf for the following languages:"
+echo "	"$argString
+
+echo "Will generate pdf in:"
+echo "	"$outputDir
+mkdir -p $outputDir
+
+echo 
+echo "The generation process will start now."
+time ${baseDir}/latex/makepdf $argString
+
+echo
+echo
+echo "Done!"
