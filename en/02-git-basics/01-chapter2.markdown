@@ -237,7 +237,7 @@ That command compares what’s in your working directory with what’s in your s
 
 To see what you’ve staged that will go into your next commit, run `git diff --staged`. This command compares what you’ve staged to your last commit.
 
-	$ git diff --cached
+	$ git diff --staged
 	diff --git a/README b/README
 	new file mode 100644
 	index 0000000..03902a1
@@ -281,9 +281,9 @@ Now, run `git diff` to see what’s still unstaged.
 	 ##pp Grit::GitRuby.cache_client.stats
 	+# test line
 
-and `git diff --cached` to see what you’ve staged.
+and `git diff --staged` to see what you’ve staged.
 
-	$ git diff --cached
+	$ git diff --staged
 	diff --git a/benchmarks.rb b/benchmarks.rb
 	index 3cb747f..e445e28 100644
 	--- a/benchmarks.rb

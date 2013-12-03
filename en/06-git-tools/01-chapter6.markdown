@@ -862,7 +862,7 @@ If you have multiple submodules, this file will have multiple entries. It’s im
 
 The other listing in the `git status` output is the `rack` entry. If you run `git diff` on that, you see something interesting.
 
-	$ git diff --cached rack
+	$ git diff --staged rack
 	diff --git a/rack b/rack
 	new file mode 160000
 	index 0000000..08d709f
