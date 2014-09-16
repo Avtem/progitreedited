@@ -147,7 +147,7 @@ Both files are staged and will go into your next commit. At this point, suppose 
 	#	modified:   benchmarks.rb
 	#
 
-What the heck? Now `benchmarks.rb` is listed as both staged and unstaged. How is that possible? It turns out that Git is seeing two version of `benchmarks.rb`. One is the version that you last staged when you ran `git add`. The other is the current version of `benchmarks.rb` in your working directory. If you commit now, the currently staged version of `benchmarks.rb` is what would go into the commit, not the version in your working directory. Remember, if you modify a file after you run `git add`, you have to run it again to stage the latest version.
+What the heck? Now `benchmarks.rb` is listed as both staged and unstaged. How is that possible? It turns out that Git is seeing two versions of `benchmarks.rb`. One is the version that you last staged when you ran `git add`. The other is the current version of `benchmarks.rb` in your working directory. If you commit now, the currently staged version of `benchmarks.rb` would go into the commit, not the version in your working directory. Remember, if you modify a file after you run `git add`, you have to run it again to stage the latest version.
 
 	$ git add benchmarks.rb
 	$ git status
